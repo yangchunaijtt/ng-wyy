@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) { 
     this.homeService.getBanners().subscribe(banners => {
       this.banners = banners;
-      console.log(11,this.banners)
     })
   }
 
