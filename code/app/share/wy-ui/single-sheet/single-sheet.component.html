@@ -1,0 +1,12 @@
+<ng-container>
+  <a class="cover">
+    <img [src]="sheet.picUrl" [alt]="sheet.name">
+    <div class="bottom">
+      <div class="num">
+        <i class="icon erji"></i>
+        <span>{{sheet.playCount |playCount}}</span>
+      </div>
+    </div>
+    <i class="icon play">{{sheet.name}}</i>
+  </a>
+</ng-container>
