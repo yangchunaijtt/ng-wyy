@@ -32,10 +32,10 @@ export class HomeService {
       }
       ))
   };
-   /**获取推荐歌单，默认是30个歌曲 */
-   getPerosonalSheetList():Observable<SongSheet[]>{
+  /**获取推荐歌单，默认是30个歌曲 */
+  getPerosonalSheetList(): Observable<SongSheet[]> {
     return this.http.get(`${this.url}personalized`)
-    .pipe(map((res:{result:SongSheet[]}) => res.result
-    ))
+      .pipe(map((res: { result: SongSheet[] }) => res.result
+      ))
   };
 }

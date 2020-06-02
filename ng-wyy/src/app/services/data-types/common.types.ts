@@ -6,14 +6,14 @@ export type Banner = {
 export type PlayTags = {
     id: number,
     name: string,
-    position:number
+    position: number
 }
 
 export type PlayList = {
     id: number,
     name: string,
-    playCount:number,
-    picUrl:string
+    playCount: number,
+    picUrl: string
 }
 
 export type SongSheet = {
