@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { Banner, PlayTags, PlayList } from 'src/app/services/data-types/common.types';
+import { SingerService } from 'src/app/services/singer.service';
+import { Banner, PlayTags, PlayList ,SongSheet, Singer } from 'src/app/services/data-types/common.types';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,14 @@ export class HomeComponent implements OnInit {
   banners: Banner[];
   tags: PlayTags[];
   playData: PlayList[];
-  constructor(private homeService: HomeService) {
+  SongSheetList: SongSheet[];
+  singerList: Singer[];
+  constructor(private homeService: HomeService,private singerService :SingerService) {
     this.getBanners();
     this.getTags();
     this.getPlayLists();
+    this.getPerosonalSheetList();
+    this.getSingerList();
   }
   private getBanners() {
     this.homeService.getBanners().subscribe(banners => {
@@ -32,7 +37,20 @@ export class HomeComponent implements OnInit {
       this.playData = playData;
       console.log(11, this.playData);
     })
-  }
+  };
+    // 获取推荐歌曲
+    private getPerosonalSheetList() {
+      this.homeService.getPerosonalSheetList().subscribe(SongSheetList => {
+        this.SongSheetList = SongSheetList;
+      })
+    };
+    // 获取歌手
+    private getSingerList() {
+      this.singerService.getSinger().subscribe(Singer => {
+        this.singerList = Singer;
+        console.log(11,Singer);
+      })
+    }
   ngOnInit(): void {
   }
 
